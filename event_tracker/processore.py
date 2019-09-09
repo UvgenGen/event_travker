@@ -26,6 +26,11 @@ class EventTrackerProcessor(BaseBackend):
         @params:
         event: raw event from edX event tracking pipeline
         """
+        requests.post(
+            "https://hooks.slack.com/services/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",
+            data=json.dumps({"text": "Test"}),
+            headers={'Content-Type': 'application/json'}
+        )
         try:
             g_statement = converter.to_gamma(event)
             if g_statement is not None:
